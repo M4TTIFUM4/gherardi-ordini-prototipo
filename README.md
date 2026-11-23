@@ -1,6 +1,6 @@
-# Gherardi · Area ordini (prototipo)
+# Gherardi · Sito e area ordini (prototipo)
 
-Restyling del portale B2B `ordini.gherardi.so`: web app statica, senza dipendenze, con dati locali.
+Restyling del sito vetrina `gherardi.so` e del portale B2B `ordini.gherardi.so`: pagine statiche, senza dipendenze, con dati locali.
 
 ## Avvio
 
@@ -10,13 +10,14 @@ Doppio clic su `avvia.bat` (richiede Python), oppure:
 python -m http.server 5173 --bind 127.0.0.1
 ```
 
-Poi apri <http://localhost:5173/> e accedi con `admin` / `admin`.
+Poi apri <http://localhost:5173/> (sito) oppure <http://localhost:5173/ordini.html> (area ordini, accesso `admin` / `admin`).
 
 ## Cosa contiene
 
 | Percorso | Contenuto |
 | --- | --- |
-| `index.html` | Pagina unica dell'app |
+| `index.html`, `css/site.css`, `js/site.js` | Sito vetrina: chi siamo, prodotti, consegna, partner, news, lavora con noi, contatti |
+| `ordini.html` | Area riservata (app ordini) |
 | `css/style.css` | Grafica responsive (desktop, tablet, mobile) |
 | `js/app.js` | Login, catalogo, filtri, carrello, storico ordini |
 | `js/search.js` | Motore di ricerca con priorità nome → categoria → descrizione |
@@ -25,6 +26,7 @@ Poi apri <http://localhost:5173/> e accedi con `admin` / `admin`.
 ## Dati
 
 - Il catalogo è una copia locale dell'assortimento, estratta in sola lettura il 13/11/2026. I prezzi sono quelli del listino dell'utente usato per l'analisi.
+- Le foto del sito vetrina (sede, magazzino, furgoni, icone, marchi, loghi partner, news) sono caricate da `gherardi.so/wp-content/uploads/`: il prototipo non ne contiene copie.
 - Le foto prodotto sono caricate dal portale attuale (`ordini.gherardi.so/files/img_art/`); senza rete compare un'icona di categoria.
 - Carrello e ordini restano nel browser (`localStorage`). **Nessun ordine viene trasmesso a Gherardi.**
 

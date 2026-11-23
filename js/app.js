@@ -129,6 +129,7 @@ function renderLogin(error) {
   $('#app').innerHTML = `
   <div class="login">
     <section class="login-hero">
+      <a class="back-site" href="index.html">← Torna al sito</a>
       <div class="brand big">Gherardi<small>dal 1977 · soluzioni per ristorazione e panificazione</small></div>
       <h1>Ordina in pochi tocchi,<br>dal banco o dal telefono.</h1>
       <ul>
@@ -186,7 +187,7 @@ function renderShell() {
     <aside class="cats" id="cats" aria-label="Categorie"></aside>
     <main id="main"></main>
   </div>
-  <footer class="foot">Gherardi S.r.l. · tel. 0342 354055 · info@gherardi.so <button class="link mobile-only" data-act="logout">Esci</button></footer>
+  <footer class="foot"><a href="index.html">gherardi.so</a> · Gherardi S.r.l. · tel. 0342 354055 · info@gherardi.so <button class="link mobile-only" data-act="logout">Esci</button></footer>
   <aside class="drawer" id="cart" aria-label="Carrello"></aside>
   <div class="scrim" data-act="close-drawers"></div>
   <nav class="bottom-nav mobile-only">

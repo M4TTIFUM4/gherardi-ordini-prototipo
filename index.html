@@ -5,13 +5,225 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="theme-color" content="#c8201a">
-  <title>Gherardi · Area ordini</title>
+  <title>Gherardi · Forniture per ristorazione e panificazione</title>
+  <meta name="description" content="Dal 1977 Gherardi fornisce ristoranti, alberghi, pizzerie, panifici e bar della provincia di Sondrio: oltre 2.000 referenze alimentari e non food, consegnate con mezzi propri.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23c8201a'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-style='italic' font-size='20' fill='white' text-anchor='middle'%3EG%3C/text%3E%3C/svg%3E">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/site.css">
 </head>
 <body>
-  <div id="app"><div class="boot">Caricamento…</div></div>
-  <script type="module" src="js/app.js"></script>
-  <noscript>Per usare l'area ordini è necessario abilitare JavaScript.</noscript>
+  <a class="skip" href="#main">Vai al contenuto</a>
+
+  <header class="nav" id="top">
+    <div class="wrap nav-in">
+      <a class="logo" href="#top" aria-label="Gherardi, torna all'inizio"><img src="https://gherardi.so/wp-content/uploads/2020/10/gherardi2.png" alt="Gherardi dal 1977" width="160" height="99"></a>
+      <nav class="menu" id="menu" aria-label="Principale">
+        <a href="#chi-siamo">Chi siamo</a>
+        <a href="#prodotti">Prodotti</a>
+        <a href="#consegna">Consegna</a>
+        <a href="#news">News</a>
+        <a href="#lavora">Lavora con noi</a>
+        <a href="#contatti">Contatti</a>
+        <a class="btn btn-red menu-cta" href="ordini.html">Area riservata</a>
+      </nav>
+      <a class="btn btn-red nav-cta" href="ordini.html"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg><span>Area riservata</span></a>
+      <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" aria-label="Gherardi">
+      <div class="hero-slides" id="slides" aria-hidden="true">
+        <img class="on" src="https://gherardi.so/wp-content/uploads/2026/07/PXL_20260611_053606612-1536x1153.jpg" alt="">
+        <img src="https://gherardi.so/wp-content/uploads/2023/04/IMG_20230414_165744-1536x1152.jpg" alt="" loading="lazy">
+        <img src="https://gherardi.so/wp-content/uploads/2021/03/furgone-primavera1.jpg" alt="" loading="lazy">
+        <img src="https://gherardi.so/wp-content/uploads/2023/04/IMG_20230421_153435-1536x1152.jpg" alt="" loading="lazy">
+        <img src="https://gherardi.so/wp-content/uploads/2023/04/IMG_20230329_141154-1536x1152.jpg" alt="" loading="lazy">
+      </div>
+      <div class="wrap hero-in">
+        <p class="eyebrow light">Caiolo · Sondrio — dal 1977</p>
+        <h1>Tutto quello che serve alla tua cucina, <em>consegnato da chi conosce la Valtellina.</em></h1>
+        <p class="lead">Oltre 2.000 referenze alimentari e non food per ristoranti, alberghi, pizzerie, panifici, pasticcerie e bar. Un solo fornitore, un solo ordine, un furgone che arriva quando serve.</p>
+        <div class="hero-cta">
+          <a class="btn btn-red btn-lg" href="#prodotti">Scopri i prodotti</a>
+          <a class="btn btn-glass btn-lg" href="ordini.html">Ordina online</a>
+        </div>
+        <div class="dots" id="dots" role="tablist" aria-label="Immagini"></div>
+      </div>
+    </section>
+
+    <!-- NUMERI -->
+    <section class="stats wrap" aria-label="Gherardi in numeri">
+      <div class="stat"><b data-count="1977">1977</b><span>l'anno in cui abbiamo iniziato</span></div>
+      <div class="stat"><b><span data-count="2000">2.000</span>+</b><span>referenze a catalogo</span></div>
+      <div class="stat"><b><span data-count="60">60</span>+</b><span>produttori partner</span></div>
+      <div class="stat"><b>0</b><span>minimo d'ordine per la consegna</span></div>
+    </section>
+
+    <!-- CHI SIAMO -->
+    <section class="section" id="chi-siamo">
+      <div class="wrap split">
+        <div class="split-media reveal">
+          <img src="https://gherardi.so/wp-content/uploads/2020/11/bakery-1868925_1920-1024x758.jpg" alt="Banco di una panetteria con pane e brioche appena sfornati" loading="lazy">
+          <div class="badge-float"><b>Impresa di famiglia</b><span>da quasi cinquant'anni</span></div>
+        </div>
+        <div class="split-text reveal">
+          <p class="eyebrow">Chi siamo</p>
+          <h2>Un partner, non soltanto un fornitore.</h2>
+          <p>Gherardi nasce nel 1977 come impresa familiare e da allora affianca chi lavora nel fuori casa: ristorazione, accoglienza e panificazione. Scegliamo ogni prodotto e ogni produttore con cura, e aiutiamo i nostri clienti a leggere cosa chiede davvero il mercato.</p>
+          <ul class="values">
+            <li><span class="v-ic">✓</span><div><b>Qualità e serietà</b><p>Un magazzino moderno, prodotti selezionati e persone competenti che rispondono al telefono.</p></div></li>
+            <li><span class="v-ic">🌱</span><div><b>Sostenibilità</b><p>Conosciamo storia, luoghi, materie prime e metodi di lavorazione di ciò che vendiamo.</p></div></li>
+            <li><span class="v-ic">🤝</span><div><b>Umanità e relazione</b><p>Con chi lavora con noi e con i clienti che ci scelgono anche per il rapporto, non solo per il listino.</p></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRODOTTI -->
+    <section class="section tint" id="prodotti">
+      <div class="wrap">
+        <div class="head reveal">
+          <p class="eyebrow">Prodotti</p>
+          <h2>Dal fresco al secco, fino al tovagliato.</h2>
+          <p class="sub">La maggior parte dei nostri articoli è italiana. Ogni fornitore passa una valutazione su qualità, norme igienico-sanitarie, sicurezza e continuità di approvvigionamento.</p>
+        </div>
+        <div class="tabs reveal" role="tablist" aria-label="Famiglie di prodotto">
+          <button role="tab" aria-selected="true" data-tab="food">Alimentari <em>12</em></button>
+          <button role="tab" aria-selected="false" data-tab="nonfood">Non food <em>3</em></button>
+          <button role="tab" aria-selected="false" data-tab="brand">I nostri marchi <em>5</em></button>
+        </div>
+        <div class="cards" id="cards" aria-live="polite"></div>
+        <div class="center reveal"><a class="btn btn-dark btn-lg" href="ordini.html">Sfoglia il catalogo completo →</a></div>
+      </div>
+    </section>
+
+    <!-- CONSEGNA -->
+    <section class="section" id="consegna">
+      <div class="wrap split reverse">
+        <div class="split-media stack reveal">
+          <img src="https://gherardi.so/wp-content/uploads/2020/11/preparazione-consegne.jpg" alt="Preparazione delle consegne in magazzino" loading="lazy">
+          <img class="stack-2" src="https://gherardi.so/wp-content/uploads/2021/03/furgone-primavera1-1024x768.jpg" alt="Furgone refrigerato Gherardi" loading="lazy">
+        </div>
+        <div class="split-text reveal">
+          <p class="eyebrow">Consegna a domicilio</p>
+          <h2>Ordini oggi, lo trovi in cucina.</h2>
+          <p>Portiamo tutto il nostro assortimento direttamente nel tuo locale, in provincia di Sondrio e nelle zone vicine, con attenzione particolare alle urgenze.</p>
+          <div class="feats">
+            <div><b>❄️ Catena del freddo</b><span>Mezzi propri per trasportare insieme freschi e prodotti a temperatura ambiente, con cella frigorifera dedicata.</span></div>
+            <div><b>📦 Nessun minimo</b><span>Nessun vincolo di quantità: ordini quello che serve, quando serve.</span></div>
+            <div><b>⚡ Evasione rapida</b><span>Ordini preparati in giornata e consegnati nel rispetto di tempi e modalità di trasporto degli alimenti.</span></div>
+            <div><b>📱 Ordine online</b><span>Dall'area riservata, anche dal telefono: cerchi, aggiungi, invii.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTNER -->
+    <section class="partners" aria-labelledby="partner-t">
+      <div class="wrap head reveal">
+        <p class="eyebrow">I nostri partner</p>
+        <h2 id="partner-t">Produttori scelti uno per uno.</h2>
+        <p class="sub">Alcuni lavorano con noi da più di quarant'anni.</p>
+      </div>
+      <div class="marquee" id="marquee"></div>
+      <div class="wrap cg reveal">
+        <img src="https://gherardi.so/wp-content/uploads/2020/11/logo_cateringross.png" alt="Cateringross" loading="lazy">
+        <p>Siamo <b>soci fondatori di Cateringross</b>, il più importante gruppo d'acquisto nazionale tra grossisti del food service: per questo possiamo offrire grandi marchi e linee esclusive alle migliori condizioni.</p>
+      </div>
+    </section>
+
+    <!-- NEWS -->
+    <section class="section" id="news">
+      <div class="wrap">
+        <div class="head row reveal">
+          <div><p class="eyebrow">News</p><h2>Novità dal mondo Gherardi.</h2></div>
+          <a class="more-link" href="https://gherardi.so/blog/" target="_blank" rel="noopener">Tutte le news ↗</a>
+        </div>
+        <div class="news" id="newsList"></div>
+      </div>
+    </section>
+
+    <!-- LAVORA CON NOI -->
+    <section class="jobs" id="lavora">
+      <img class="jobs-bg" src="https://gherardi.so/wp-content/uploads/2020/11/cta1.jpg" alt="" loading="lazy">
+      <div class="wrap jobs-in reveal">
+        <div>
+          <p class="eyebrow light">Lavora con noi</p>
+          <h2>La nostra risorsa più grande sono le persone.</h2>
+          <p>Lavoro di squadra, formazione e apprendistato per crescere in un contesto dinamico. Cerchiamo:</p>
+        </div>
+        <ul class="positions">
+          <li><b>Impiegato commerciale</b><span>Sede di Caiolo (SO)</span><a href="mailto:info@gherardi.so?subject=Candidatura%3A%20Impiegato%20commerciale">Candidati →</a></li>
+          <li><b>Autista consegnatario</b><span>Patente C + CQC</span><a href="mailto:info@gherardi.so?subject=Candidatura%3A%20Autista%20consegnatario">Candidati →</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CONTATTI -->
+    <section class="section" id="contatti">
+      <div class="wrap contact">
+        <div class="reveal">
+          <p class="eyebrow">Contatti</p>
+          <h2>Passa a trovarci o scrivici.</h2>
+          <div class="c-cards">
+            <a class="c-card" href="https://www.google.com/maps/search/?api=1&query=Gherardi+Srl+Via+Valeriana+Caiolo+SO" target="_blank" rel="noopener"><span>📍</span><div><b>Gherardi S.r.l.</b>Via Valeriana, Z.I.<br>23010 Caiolo (SO)</div></a>
+            <a class="c-card" href="tel:+390342354055"><span>📞</span><div><b>Telefono</b>+39 0342 354055</div></a>
+            <a class="c-card" href="mailto:info@gherardi.so"><span>✉️</span><div><b>Email</b>info@gherardi.so</div></a>
+          </div>
+          <div class="hours">
+            <div class="hours-h"><b>Orari</b><span class="open" id="openNow"></span></div>
+            <dl id="hours"></dl>
+          </div>
+        </div>
+        <form class="form reveal" id="contactForm">
+          <h3>Richiedi informazioni</h3>
+          <p class="muted">Vuoi diventare cliente o ricevere le credenziali dell'area ordini? Lasciaci due righe.</p>
+          <div class="row2">
+            <label>Nome e cognome<input name="nome" required autocomplete="name"></label>
+            <label>Attività<input name="attivita" placeholder="Es. Ristorante, panificio…" autocomplete="organization"></label>
+          </div>
+          <div class="row2">
+            <label>Email<input name="email" type="email" required autocomplete="email"></label>
+            <label>Telefono<input name="tel" type="tel" autocomplete="tel"></label>
+          </div>
+          <label>Messaggio<textarea name="msg" rows="4" required></textarea></label>
+          <label class="check"><input type="checkbox" required> Ho letto l'informativa privacy e acconsento al trattamento dei dati.</label>
+          <button class="btn btn-red btn-lg" type="submit">Invia richiesta</button>
+          <p class="note">Prototipo: il pulsante apre il tuo programma di posta con il messaggio già compilato.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- CTA AREA RISERVATA -->
+    <section class="wrap cta-band reveal">
+      <div>
+        <h2>Sei già cliente?</h2>
+        <p>Entra nell'area riservata: catalogo completo con i tuoi prezzi, ricerca veloce e ordini in pochi tocchi.</p>
+      </div>
+      <a class="btn btn-light btn-lg" href="ordini.html">Accedi all'area ordini →</a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap foot-in">
+      <div>
+        <img class="foot-logo" src="https://gherardi.so/wp-content/uploads/2020/10/gherardi2.png" alt="Gherardi" width="130" height="80" loading="lazy">
+        <p>Soluzioni per ristorazione e panificazione dal 1977.</p>
+      </div>
+      <div><b>Azienda</b><a href="#chi-siamo">Chi siamo</a><a href="#partner-t">Partner e Cateringross</a><a href="#lavora">Lavora con noi</a></div>
+      <div><b>Servizi</b><a href="#prodotti">Prodotti</a><a href="#consegna">Consegna a domicilio</a><a href="ordini.html">Area riservata</a></div>
+      <div><b>Contatti</b><a href="tel:+390342354055">0342 354055</a><a href="mailto:info@gherardi.so">info@gherardi.so</a><span>Via Valeriana, Z.I. · 23010 Caiolo (SO)</span></div>
+    </div>
+    <div class="wrap foot-bottom">
+      <span>© <span id="year">2026</span> Gherardi S.r.l.</span>
+      <span>Prototipo di restyling · non è il sito ufficiale</span>
+    </div>
+  </footer>
+
+  <script src="js/site.js" defer></script>
 </body>
 </html>
