@@ -46,3 +46,15 @@ In più: singolari/plurali italiani (`pomodoro` ↔ `pomodori`), ricerca per pre
 - Autenticazione vera lato server (qui il controllo è nel browser, solo dimostrativo).
 - Collegamento al gestionale per listini per cliente, disponibilità, invio ordini, storico.
 - Panieri tematici del portale attuale (Hotel, Pizzeria, Gastronomia, Pasticceria, Senza glutine) e promozioni con date.
+
+## Palmare di magazzino (demo)
+
+`palmare.html` simula il palmare per la preparazione degli ordini; funziona da iPhone e Android (su iPhone: Condividi → Aggiungi a Home per aprirlo a tutto schermo).
+
+- **Dati**: `data/palmare.json`, 100 articoli presi dal catalogo e 3 ordini di prova (Pompucci, I Tigli, Tinello). Si rigenera con `python tools/genera_palmare.py`.
+- **Lettura EAN**: fotocamera del telefono (BarcodeDetector su Android, ZXing su iPhone), lettore laser del palmare in modalità tastiera con suffisso Invio, inserimento a mano o simulazione.
+- **EAN**: gli articoli senza EAN reale hanno un EAN interno di prova (prefisso 20). Gli articoli a peso variabile usano etichette EAN 21 + PLU + peso in grammi.
+- **Scadenze**: lotti in ordine FEFO, residuo minimo per cliente (freschi/secchi), blocco dei lotti scaduti, avviso e forzatura annotata sotto il minimo.
+- **Pesi**: righe a pezzi (ogni etichetta è un pezzo) o a kg (tolleranza ±10%), bilancia simulata.
+- `etichette.html`: codici a barre di prova da aprire sul PC e inquadrare col telefono.
+- I progressi restano nel browser del dispositivo; nulla viene inviato al gestionale.

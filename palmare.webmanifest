@@ -1,0 +1,14 @@
+{
+  "name": "Gherardi · Palmare magazzino",
+  "short_name": "Palmare",
+  "start_url": "palmare.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1f1a17",
+  "theme_color": "#1f1a17",
+  "icons": [
+    { "src": "icons/palmare-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/palmare-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

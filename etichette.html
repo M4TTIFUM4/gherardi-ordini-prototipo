@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <title>Gherardi · Etichette di prova palmare</title>
+  <style>
+    :root { --red: #c8201a; --ink: #1f1a17; --muted: #756b64; --line: #e3dad3; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; color: var(--ink); background: #f4f0ec; }
+    header { position: sticky; top: 0; z-index: 2; background: var(--ink); color: #fff; padding: 14px 20px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+    header b { font: italic 700 24px Georgia, serif; color: #ff6d63; }
+    header p { margin: 0; color: #d9cec6; font-size: 14px; flex: 1; min-width: 240px; }
+    .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+    .tabs button { border: 1px solid #5a514c; background: transparent; color: #fff; border-radius: 999px; padding: 8px 14px; font: 600 14px inherit; cursor: pointer; }
+    .tabs button.on { background: #fff; color: var(--ink); }
+    .tabs button:not(.on):hover { background: rgba(255, 255, 255, .1); }
+    main { padding: 20px; }
+    h2 { font-size: 15px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 22px 0 10px; }
+    h2:first-child { margin-top: 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 12px; }
+    .lab { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 12px; display: grid; gap: 6px; break-inside: avoid; }
+    .lab .t { display: flex; justify-content: space-between; gap: 8px; font-size: 12px; color: var(--muted); }
+    .lab .t b { font: 700 12px ui-monospace, Menlo, Consolas, monospace; color: var(--ink); background: #efe9e4; padding: 2px 6px; border-radius: 6px; }
+    .lab .n { font-weight: 700; font-size: 14px; line-height: 1.25; min-height: 2.5em; }
+    .lab svg { width: 100%; max-width: 230px; height: auto; justify-self: center; }
+    .lab.w { border: 2px solid var(--red); }
+    .lab.w .kg { justify-self: center; font: 800 22px system-ui; color: var(--red); }
+    .lab.bad { opacity: .9; border-style: dashed; }
+    .hint { background: #fff3d6; color: #8a5200; border-radius: 10px; padding: 10px 14px; font-size: 14px; margin-bottom: 14px; }
+    @media print { header, .hint { display: none; } body { background: #fff; } main { padding: 0; } .lab { border-color: #999; } }
+  </style>
+</head>
+<body>
+  <header>
+    <b>Gherardi</b>
+    <p>Etichette di prova per il palmare: inquadrale con il telefono dalla schermata di prelievo. Le etichette rosse sono pesi variabili (EAN 21 + PLU + peso).</p>
+    <div class="tabs" id="tabs"></div>
+  </header>
+  <main id="main">Caricamento…</main>
+  <script type="module">
+    import { ean13Svg, weightEan } from './js/ean.js';
+    const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const nf = (n) => new Intl.NumberFormat('it-IT', { minimumFractionDigits: 3, maximumFractionDigits: 3 }).format(n);
+    const D = await fetch('data/palmare.json').then((r) => r.json());
+    const P = new Map(D.products.map((p) => [p.c, p]));
+    const C = new Map(D.customers.map((c) => [c.id, c]));
+    // pesi fissi (non casuali) così le etichette restano uguali a ogni apertura
+    const weights = (p) => [0.92, 1.04, 1.11].map((f) => Math.round(p.avg * f * 1000) / 1000);
+    const label = (p) => `<div class="lab"><div class="t"><b>${esc(p.loc)}</b><span>${esc(p.c)}</span></div><div class="n">${esc(p.n)}</div>${ean13Svg(p.ean, { height: 54 })}</div>`;
+    const wlabel = (p, w) => `<div class="lab w"><div class="t"><b>${esc(p.loc)}</b><span>PLU ${p.plu}</span></div><div class="n">${esc(p.n)}</div><div class="kg">${nf(w)} kg</div>${ean13Svg(weightEan(p.plu, w), { height: 54 })}</div>`;
+    const tabs = [...D.orders.map((o) => ({ id: o.id, name: C.get(o.cust).name })), { id: 'all', name: 'Tutti i 100 articoli' }];
+    const show = (id) => {
+      document.querySelectorAll('#tabs button').forEach((b) => b.classList.toggle('on', b.dataset.id === id));
+      let html;
+      if (id === 'all') {
+        html = `<div class="grid">${D.products.map((p) => (p.var ? weights(p).slice(0, 1).map((w) => wlabel(p, w)).join('') : label(p))).join('')}</div>`;
+      } else {
+        const o = D.orders.find((x) => x.id === id);
+        const lines = o.lines.map((l) => P.get(l.c)).sort((a, b) => a.loc.localeCompare(b.loc));
+        const other = D.products.find((p) => !p.var && !o.lines.some((l) => l.c === p.c));
+        html = `<div class="hint">Ordine ${esc(o.id)} · ${esc(C.get(o.cust).name)}: etichette nell'ordine del percorso di prelievo. Per gli articoli a peso variabile ci sono più pesi diversi; l'ultima etichetta è un articolo che non fa parte dell'ordine, per provare l'errore.</div>
+          <div class="grid">${lines.map((p) => (p.var ? weights(p).map((w) => wlabel(p, w)).join('') : label(p))).join('')}
+          <div class="lab bad"><div class="t"><b>FUORI ORDINE</b><span>${esc(other.c)}</span></div><div class="n">${esc(other.n)}</div>${ean13Svg(other.ean, { height: 54 })}</div></div>`;
+      }
+      document.getElementById('main').innerHTML = html;
+      try { localStorage.setItem('gh_labels_tab', id); } catch { /* */ }
+    };
+    document.getElementById('tabs').innerHTML = tabs.map((t) => `<button data-id="${t.id}">${esc(t.name)}</button>`).join('');
+    document.getElementById('tabs').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) show(b.dataset.id); });
+    let start = D.orders[0].id;
+    try { start = localStorage.getItem('gh_labels_tab') || start; } catch { /* */ }
+    show(tabs.some((t) => t.id === start) ? start : D.orders[0].id);
+  </script>
+</body>
+</html>

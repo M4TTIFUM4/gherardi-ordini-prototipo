@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, user-scalable=no">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#1f1a17">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Palmare">
+  <title>Gherardi · Palmare magazzino</title>
+  <link rel="manifest" href="palmare.webmanifest">
+  <link rel="apple-touch-icon" href="icons/palmare-180.png">
+  <link rel="icon" type="image/png" href="icons/palmare-192.png">
+  <link rel="stylesheet" href="css/palmare.css">
+</head>
+<body>
+  <div class="stage">
+    <aside class="side">
+      <div class="side-brand">Gherardi<small>Palmare magazzino · demo</small></div>
+      <h1>Prova il palmare dal telefono</h1>
+      <p>Inquadra il codice con la fotocamera dell'iPhone, apri la pagina e scegli <b>Condividi → Aggiungi a Home</b>: si apre a tutto schermo come un'app.</p>
+      <div class="qr" id="qr" aria-label="Codice QR per aprire la demo sul telefono"></div>
+      <p class="side-url" id="sideUrl"></p>
+      <ol>
+        <li>Apri <a href="etichette.html" target="_blank" rel="noopener">le etichette di prova</a> su questo schermo.</li>
+        <li>Sul telefono entra in un ordine e premi <b>Scansiona</b>.</li>
+        <li>Inquadra il codice a barre dell'articolo o l'etichetta del peso.</li>
+      </ol>
+      <p class="muted">Sul palmare Android il lettore laser funziona come una tastiera: la demo lo supporta già.</p>
+    </aside>
+    <div class="device">
+      <div class="app" id="app"><div class="boot">Avvio palmare…</div></div>
+    </div>
+  </div>
+  <script type="module" src="js/palmare.js"></script>
+</body>
+</html>
